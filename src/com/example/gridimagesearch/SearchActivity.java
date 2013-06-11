@@ -30,10 +30,10 @@ public class SearchActivity extends Activity {
 	Button btnSearch;
 	ArrayList<ImageResult> imageResults = new ArrayList<ImageResult>();
 	ImageResultArrayAdapter imageAdapter;
-	String imgSize;
-	String imgColor;
-	String imgType;
-	String imgSite;
+	String size;
+	String color;
+	String type;
+	String site;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,20 @@ public class SearchActivity extends Activity {
 			}
 
 		});
+		
+		size = "medium";
+		color = "black";
+		type = "jpg";
+		site = "google.com";
+
+		Bundle data = getIntent().getExtras();
+		if ( data != null && !data.isEmpty()) {
+			size = data.getString("size");
+			color= data.getString("color");
+			type = data.getString("type");
+			site = data.getString("site");
+		}
+
 	}
 
 	@Override
@@ -74,34 +88,29 @@ public class SearchActivity extends Activity {
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			break;
-		case R.id.actBarSettings:
-			startActivityForResult(new Intent(this, ImageFilterActivity.class), 0 );
+		case R.id.action_settings:
+			Intent i = new Intent(this, ImageFilterActivity.class);
+			startActivity(i);
 			break;
 		default:
 			break;
 		}
 		return true;
 	}
-	
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode ==0 ) {
-			if (resultCode == RESULT_OK) {
-				imgSize = data.getStringExtra("size");
-				imgColor = data.getStringExtra("color");
-				imgType = data.getStringExtra("type");
-				imgSite = data.getStringExtra("site");
-			}
-		}
-	}
-	
+		
 	public void onImageSearch(View v) {
+		
+		
 		String query = etQuery.getText().toString();
 		Toast.makeText(this, "Searching for " + query, Toast.LENGTH_SHORT)
 				.show();
 		AsyncHttpClient client = new AsyncHttpClient();
+
 		client.get(
-				"https://ajax.googleapis.com/ajax/services/search/images?rsz=8&start="
-						+ 0 + "&v=1.0&q=" + Uri.encode(query),
+				"https://ajax.googleapis.com/ajax/services/search/images?rsz=8&" + 
+				"start=" + 0 + "&v=1.0&q=" + Uri.encode(query) + "&imgcolor=" + Uri.encode(color)
+				+ "&imgtype=" + Uri.encode(type) + "&imgsz=" + Uri.encode(size) + "&as_sitesearch=" + 
+				Uri.encode(site),
 				new JsonHttpResponseHandler() {
 					@Override
 					public void onSuccess(JSONObject response) {

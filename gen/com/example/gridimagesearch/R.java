@@ -24,18 +24,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int actBarSettings=0x7f080010;
-        public static final int action_settings=0x7f08000e;
-        public static final int actvColorFilter=0x7f08000c;
-        public static final int actvImageSize=0x7f08000b;
+        public static final int action_settings=0x7f08000f;
         public static final int actvImageType=0x7f08000a;
-        public static final int btnApplyFilter=0x7f08000d;
+        public static final int btnApplyFilter=0x7f08000e;
         public static final int btnSearch=0x7f080002;
         public static final int etQuery=0x7f080001;
         public static final int etSiteFilter=0x7f080009;
         public static final int gvResults=0x7f080003;
-        public static final int image_filter=0x7f08000f;
         public static final int ivResult=0x7f080000;
+        public static final int spnrColorFilter=0x7f08000c;
+        public static final int spnrImageSize=0x7f08000b;
+        public static final int spnrImageType=0x7f08000d;
         public static final int tvAdvancedHeader=0x7f080004;
         public static final int tvColorFilter=0x7f080007;
         public static final int tvImageSize=0x7f080005;

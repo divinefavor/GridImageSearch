@@ -67,14 +67,15 @@
         android:layout_alignLeft="@+id/actvImageType"
         android:layout_alignRight="@+id/actvImageType"
         android:layout_toRightOf="@+id/tvSiteFilter"
+        android:text="www.yahoo.com"
         android:ems="10"
         android:hint="Enter site filter" >
 
         <requestFocus />
     </EditText>
 
-    <AutoCompleteTextView
-        android:id="@+id/actvImageSize"
+    <Spinner
+        android:id="@+id/spnrImageSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tvImageSize"
@@ -85,8 +86,8 @@
         android:ems="10"
         android:hint="Enter image size" />
 
-    <AutoCompleteTextView
-        android:id="@+id/actvColorFilter"
+    <Spinner
+        android:id="@+id/spnrColorFilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tvColorFilter"
@@ -97,8 +98,8 @@
         android:ems="10"
         android:hint="Enter color" />
 
-    <AutoCompleteTextView
-        android:id="@+id/actvImageType"
+    <Spinner
+        android:id="@+id/spnrImageType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tvImageType"
